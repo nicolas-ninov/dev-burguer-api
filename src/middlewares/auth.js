@@ -3,7 +3,8 @@ import authConfig from '../config/auth.js'
 
 const authMiddleware = (req, res, next) => {
     const authToken = req.headers.authorization;
-    console.log(authToken)
+    
+    
     if (!authToken) {
         return res.status(401).json({ error: 'Token not provided' });
     }
@@ -16,7 +17,8 @@ const authMiddleware = (req, res, next) => {
                 throw Error();
             }
 
-            req.userId = decoded.id
+            req.userId = decoded.id;
+            req.isUserAdmin = decoded.admin;
         })
     } catch (_err) {
         return res.status(401).json({ error: 'Invalid token' });
