@@ -60,7 +60,7 @@ class ProductController {
         }
 
 
-        const updatedProduct = await Product.update({
+        await Product.update({
             name,
             price,
             category_id,
