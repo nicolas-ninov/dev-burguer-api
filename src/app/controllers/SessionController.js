@@ -51,7 +51,8 @@ class SessionControler {
 
         const token = jwt.sign({
             id: existingUser.id,
-            admin: existingUser.admin
+            admin: existingUser.admin,
+            name: existingUser.name,
         },
             authConfig.secret,
             {
